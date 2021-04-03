@@ -25,7 +25,7 @@ const reallyGame=()=>{
             word = document.querySelector('#word')
             alphabet = document.querySelectorAll('#alphabet')
             h1 = new HangMan(data)
-            word.innerHTML = `<h3>word : ${data}</h3> <h4>Score: ${h1.score} - remaining guses: ${h1.remainingGuses} - game status: ${h1.gameStatus}</h4>`
+            word.innerHTML = `<h4>Score: ${h1.score} - remaining guses: ${h1.remainingGuses} - game status: ${h1.gameStatus}</h4>`
             console.log(h1)
             alphabet.forEach(button=>{
                 button.addEventListener('click', (e)=>{
