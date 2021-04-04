@@ -2,7 +2,7 @@ class HangMan{
     constructor(word){
         this.word = word.toLowerCase().split('')
         this.initWord = this.word
-        console.log(this.word)
+        this.gameOverWord = word.toLowerCase().split(',')
         this.remainingGuses = word.length + 3
         this.gusses = []
         this.score =0
@@ -19,7 +19,7 @@ class HangMan{
                 this.remainingGuses-=1
                 if(this.remainingGuses == 0) {
                     this.gameStatus = "loser"
-                    this.reloadWindow('lose')
+                    this.reloadWindow('lose',this.gameOverWord)
                 }
 
             }
@@ -39,13 +39,13 @@ class HangMan{
         }
         
     }
-    reloadWindow(status){
+    reloadWindow(status,word=''){
         setTimeout(function(){
             if(status=="win") {
                 alert(`WON!`)
             }
             else if (status=="lose") {
-                alert(`Game Over!`)
+                alert(`The word was : ${word}\nGame Over!`)
             }
             location.reload()
         }, 200)
